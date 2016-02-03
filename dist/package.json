@@ -1,0 +1,25 @@
+{
+  "name": "barbod",
+  "version": "1.0.0",
+  "description": "a lead inventory system",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/barbodco/Barbod.git"
+  },
+  "keywords": [
+    "inventory"
+  ],
+  "author": "Saeid Savadi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/barbodco/Barbod/issues"
+  },
+  "homepage": "https://github.com/barbodco/Barbod#readme",
+  "devDependencies": {
+    "grunt-build-control": "^0.6.2"
+  }
+}

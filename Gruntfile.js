@@ -142,11 +142,7 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= yeoman.dist %>/{,*/}*',
-            '!<%= yeoman.dist %>/.git{,*/}*',
-            '!<%= yeoman.dist %>/Procfile',
-            '!<%= yeoman.dist %>/package.json',
-            '!<%= yeoman.dist %>/web.js',
-            '!<%= yeoman.dist %>/node_modules'
+            '!<%= yeoman.dist %>/.git{,*/}*'
           ]
         }]
       },
@@ -380,7 +376,10 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'package.json',
+            'server.js',
+            'Procfile'
           ]
         }, {
           expand: true,
@@ -423,9 +422,24 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
-    }
+    },
+    buildcontrol: {
+      options: {
+          dir: 'dist',
+          commit: true,
+          push: true,
+          message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      heroku: {
+          options: {
+              remote: 'git@heroku.com:barbod.git',
+              branch: 'master',
+          }
+      }
+    } 
   });
 
+  grunt.loadNpmTasks('grunt-build-control'); 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
