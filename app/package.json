@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/barbodco/Barbod/issues"
   },
-  "homepage": "https://github.com/barbodco/Barbod#readme"
+  "homepage": "https://github.com/barbodco/Barbod#readme",
+  "devDependencies": {
+    "grunt-build-control": "^0.6.2"
+  }
 }
