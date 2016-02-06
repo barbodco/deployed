@@ -10,7 +10,11 @@
 angular.module('inventoryApp')
   .controller('MainCtrl', function ($scope,$http) {
     
-    $scope.headers = 'test';
+    $scope.awesomeThings = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
+    ];
 
     $http({
 		  method: 'GET',
@@ -22,5 +26,6 @@ angular.module('inventoryApp')
 			  }, function errorCallback(response) {
 			    // called asynchronously if an error occurs
 			    // or server returns response with an error status.
+			    console.log(response);
 	  });
   });
