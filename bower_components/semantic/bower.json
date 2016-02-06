@@ -11,6 +11,7 @@
   },
   "main": [
     "dist/semantic.css",
+    "dist/components/icon.css",
     "dist/semantic.js"
   ],
   "keywords": [
