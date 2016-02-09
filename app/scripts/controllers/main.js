@@ -15,42 +15,24 @@ angular.module('inventoryApp')
       'Karma'
     ];
 
-    $scope.attrs = [
-        { attr: 'type-checkbox', value: '' }
-    ];
   $scope.mainData = '';
   $scope.showColumn = {};
   $scope.limitation = 10;
   $scope.typeControl = {};
-  $http.get('table.json')
+
+  var brandAddress = 'https://barbod.cloudant.com/brand/bb5717d66f3099b6c717f2c548278ca1';
+  $http.get(brandAddress)
   	.then(function(response){
   		$scope.mainData = response.data.GD;
   		$scope.limitation = $scope.mainData.rowsperpage;
   	});
-
+  $scope.insertRow = function(){
+  	console.log('ss');
+  };
+  $scope.closeOverSlider = function(){
+  		$('.over-slider').addClass('hide-over-slider');
+  };
+  $scope.showItems = function(index){
+  		$('.items-list-'+index).toggleClass('hide');
+  };
   });
-angular.module('inventoryApp').directive('typeCheckbox', function() {
-	  return {
-	    scope: {
-	      typeCheckox: '=' //import referenced model to our directives scope
-	    },
-	    templateUrl: 'checkbox.html',
-	    // link: function(scope, elem, attr, ctrl) {
-	      
-	    //   scope.$watch('demoDisplay', function() { // watch for when model changes
-
-	    //     elem.html("") //remove all elements
-
-	    //     angular.forEach(scope.demoDisplay, function(d) { //iterate list
-	    //       var s = scope.$new(); //create a new scope
-	    //       angular.extend(s, d); //copy data onto it
-	    //       console.log(scope.demoDays);
-
-	    //       var template = '';
-	    //       elem.append($compile(template)(s)); // compile template & append
-	    //     });
-	    //   }, true) //look deep into object
-	      
-	    // }
-	  };
-	});

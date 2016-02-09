@@ -5,8 +5,9 @@
       "columnorder":"2",
       "ordertype":"asc",
       "currentpage":1,
-      "rowsperpage":10,
-      "totalpage":2,
+      "rowsperpage":14,
+      "recordcount":20,
+      "pagecount":2,
       "gridconfig":{
          "generic":"",
          "grid":{
@@ -33,7 +34,7 @@
             "sorttype":"desc"
          },
          {
-            "name":"desc",
+            "name":"description",
             "displayname":"Description",
             "visible":true,
             "control":"text",
