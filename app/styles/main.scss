@@ -141,7 +141,7 @@ body{
 .ui.menu{
   background-color: $color-700;
   color: $color-50;
-  .icon:not(.icon.search){
+  .icon:not(.mobile-spotlight){
     font-size: 25px;
     color: $color-50;
   }
@@ -213,16 +213,106 @@ body{
 .body-wrapper.hide-over-slider{
   right: -40%;
 }
-.global-spotlight{
+.ui.page.dimmer.global-spotlight{
   position: fixed;
   width: 100%;
   height: 100%;
   background-color: rgba($color-500 , .7);
-  text-align: center;
+  // text-align: center;
   top:0;
-  div.huge.input{
-    width: 40%;
-    top: 30%;
+  div.sl-container{
+    // background-color: rgba($color-500 , .0);;
+    position: relative;
+    width: 100%;
+    height: 20%;
+    top: 50%;
+    margin-top: -10%;
+    div.hider{
+      width: 40%;
+      background-color: rgba($color-700 , .7);
+      height: 100%;
+      position: absolute;
+      top: 0;
+    }
+    div.hider:nth-child(1){
+      left: 0;
+    }
+    div.hider:last-child{
+      right: 0;
+    }
+    div.module-icon-wrapper{
+      position: absolute;
+      width: 100%;
+      // font-size: 70px;
+      // i{
+      //   font-size: 70px
+      // }
+      // a{
+      //   font-size: 30px;
+      // }
+      i{
+        font-size: 84px;
+        @include transition(all .5s, color 2s);
+        &.selected{
+          margin: 0 10%;
+        }
+      }
+    }
   }
 
+}
+.module-wrapper{
+  width: 500%;
+  height: 100%;
+  div.scroller{
+    // float: left;
+    // width: 100%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: auto;
+    .ui.grid{
+      width: 400%;
+      height: 100%;
+    }
+    .module-container{
+      position: relative;
+      &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(../images/1.jpg);
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-position: center 0;
+        background-size: cover;
+      }
+    }
+  }
+  .slide-buttons{
+    bottom: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    li{
+      @include transition(all .2s, color 2s);
+      float: left;
+      list-style: none;
+      margin-right: 10px;
+      color: $color-800;
+      height: 30px;
+      &:hover,&.current{
+        font-size: 26px;
+        color: $color-400;
+        margin-top: -8px;
+        margin-left: -6px;
+        margin-right: -1px;
+      }
+    }
+  }
 }

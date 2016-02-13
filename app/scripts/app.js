@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('inventoryApp', [
+  .module('dashboard', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -23,9 +23,9 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/dashboard', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
       })
       .otherwise({
         redirectTo: '/'

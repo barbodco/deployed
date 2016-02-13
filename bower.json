@@ -18,5 +18,5 @@
     "semantic": "semantic-ui#^2.1.8"
   },
   "appPath": "app",
-  "moduleName": "inventoryApp"
+  "moduleName": "dashboard"
 }

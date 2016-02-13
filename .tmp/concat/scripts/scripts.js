@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('inventoryApp', [
+  .module('dashboard', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -23,9 +23,9 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/dashboard', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
       })
       .otherwise({
         redirectTo: '/'
@@ -41,50 +41,56 @@ angular
  * # MainCtrl
  * Controller of the inventoryApp
  */
-angular.module('inventoryApp')
-  .controller('MainCtrl', ["$scope", "$http", function ($scope,$http) {
-  	$scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+var dashboard = angular.module('dashboard');
 
-  $scope.mainData = '';
-  $scope.showColumn = {};
-  $scope.limitation = 10;
-  $scope.typeControl = {};
+  dashboard.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/', {
+      templateUrl:'dashboard/dashboard.tpl.html',
+      controller:'MainCtrl'
+      });
+    }]);
 
-  var brandAddress = 'https://barbod.cloudant.com/brand/bb5717d66f3099b6c717f2c548278ca1';
-  $http.get(brandAddress)
-  	.then(function(response){
-  		$scope.mainData = response.data.GD;
-  		$scope.limitation = $scope.mainData.rowsperpage;
-  	});
-  $scope.insertRow = function(){
-  	console.log('ss');
-  };
-  $scope.closeOverSlider = function(){
-  		$('.over-slider').addClass('hide-over-slider');
-  };
-  $scope.showItems = function(index){
-  		$('.items-list-'+index).toggleClass('hide');
-  };
-  }]);
-
-'use strict';
-
-/**
- * @ngdoc function
- * @name inventoryApp.controller:AboutCtrl
- * @description
- * # AboutCtrl
- * Controller of the inventoryApp
- */
-angular.module('inventoryApp')
-  .controller('AboutCtrl', ["$scope", function ($scope) {
+  dashboard.controller('MainCtrl', ["$scope", "$http", function ($scope,$http) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  }]);
+    var content = [
+      { title: 'Module1' },
+      { title: 'Module2' },
+      { title: 'Module3' },
+      { title: 'Module4' }
+    ];    
+    $('.ui.page.dimmer.global-spotlight .ui.search')
+      .search({
+        source: content
+    });
+    $scope.mainData = '';
+    $scope.showColumn = {};
+    $scope.limitation = 10;
+    $scope.typeControl = {};
+    $http.get('table.json')
+      .then(function(response){
+        $scope.mainData = response.data.GD;
+        $scope.limitation = $scope.mainData.rowsperpage;
+      });
+    $scope.closeOverSlider = function(){
+        $('.over-slider').addClass('hide-over-slider');
+    };
+    $scope.showItems = function(index){
+        $('.items-list-'+index).toggleClass('hide');
+    };
+    $scope.spotlight = function(){
+      // need to pass data to dimmer to show data after , dimmer should be a service
+      // callDimmer()
+      $('.global-spotlight').dimmer('show');
+
+      };
+    $scope.moduleSlider = function(mIndex){
+      var mWidth = $('.module-container').outerWidth();//1000
+          $('.slide-buttons li').removeClass('current');
+          $('.slide-buttons li:eq('+mIndex+')').addClass('current');
+          $('.scroller').animate({scrollLeft: mIndex*mWidth }, 1000);
+    };
+    }]);

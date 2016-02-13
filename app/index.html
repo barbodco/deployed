@@ -16,38 +16,48 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="inventoryApp">
+  <body ng-app="dashboard">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
 
-    <div class="ui stackable menu">
+    <div class="ui stackable menu"  ng-controller="MainCtrl">
         <a class="logo item">
           <img src="http://blogs.fasos.maastrichtuniversity.nl/logoimago/mpiersotte/wp-content/uploads/sites/139/2015/04/mixed-logo.jpg" width="40px">
         </a>
         <a class="item">
           <i class="align justify icon"></i>
         </a>
-        <div class="ui icon input">
+        <a class="item" ng-click="spotlight()">
+          <i class="align tasks icon"></i>
+        </a>
+        <!-- <div class="ui icon input mobile-spotlight">
           <input type="text" placeholder="Search...">
           <i class="inverted circular search link icon"></i>
-        </div>
-      <div class="right item top-header">
-        <!-- <div class="ui action input nav-input">
-          <input type="text" placeholder="Navigate to...">
-          <div class="ui button">Go</div>
         </div> -->
-            <img src="http://semantic-ui.com/images/avatar2/small/lena.png" class="ui mini rounded image">
-      </div>
+        <div class="ui page dimmer mobile-spotlight icon input">
+          <div class="content">
+            <input type="text" placeholder="Search..." class="center">
+            <i class="inverted circular search link icon"></i>
+          </div>
+        </div>
+        <div class="right item top-header">
+          <!-- <div class="ui action input nav-input">
+            <input type="text" placeholder="Navigate to...">
+            <div class="ui button">Go</div>
+          </div> -->
+              <img src="http://semantic-ui.com/images/avatar2/small/lena.png" class="ui mini rounded image">
+        </div>
     </div>
-    </div>
+
+    
     <div class="body-wrapper over-slider hide-over-slider brand" ng-controller="MainCtrl">
       <div  ng-click="closeOverSlider()">
         <i class="icon remove"></i>
       </div>
-      <table class="ui compact celled definition table">
+      <table class="ui compact celled definition table" ng-init="genericAjaxCall()">
           <thead>
             <tr>
               <th>
@@ -164,11 +174,55 @@
           </tfoot>
         </table>
     </div>
-    <div class="global-spotlight" style="display:none">
-      <div class="ui huge icon input">
-        <input type="text" placeholder="Search a very wide input...">
-        <i class="search icon"></i>
+    <!-- <ul class="module-wrapper">
+      <li>
+        <div class="module-container">
+          test
+        </div>
+      </li>
+      <li>
+        <div class="module-container">
+          test
+        </div>
+      </li>
+    </ul> -->
+    <div class="module-wrapper"   ng-controller="MainCtrl">
+      <div class="scroller">
+        <div class="ui grid">
+          <div class="four wide column module-container"></div>
+          <div class="four wide column module-container"></div>
+          <div class="four wide column module-container"></div>
+          <div class="four wide column module-container"></div>
+        </div>
       </div>
+      <div class="slide-buttons">
+        <ul>
+          <li class="current" ng-click="moduleSlider(0)">
+            <i class="square icon"></i>
+          </li>
+          <li ng-click="moduleSlider(1)">
+            <i class="square icon"></i>
+          </li>
+          <li ng-click="moduleSlider(2)">
+            <i class="square icon"></i>
+          </li>
+          <li ng-click="moduleSlider(3)">
+            <i class="square icon"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="ui page dimmer global-spotlight">
+      <div class="sl-container">
+        <div class="hider"></div>
+        <div class="module-icon-wrapper ui labled icon">
+          <i class="fire extinguisher icon"></i>
+          <i class="fire icon"></i>
+          <i class="gift icon selected"></i>
+          <i class="leaf icon"></i>
+          <i class="legal icon"></i>
+        </div>
+        <div class="hider"></div>
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -199,8 +253,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/dashboard/dashboard.js"></script>
         <!-- endbuild -->
 </body>
 </html>
