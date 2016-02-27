@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('dashboard', [
+  .module('barbod', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -20,14 +20,14 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'scripts/login/login.tpl.html',
+        controller: 'LoginCtrl',
       })
       .when('/dashboard', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
+        templateUrl: 'scripts/dashboard/dashboard.tpl.html',
+        controller: 'DashboardCtrl'
       });
+  //     .otherwise({
+  //       redirectTo: '/'
+  //     });
   });

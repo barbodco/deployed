@@ -134,11 +134,28 @@ body {
 // Saeid
 body{
   background-color: $color-50;
+  &.in-login-bg{
+    background: url(../images/login-bg.jpg) no-repeat center center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 5001px rgba(59, 183, 80, 0.2);
+  }
+  .login-wrapper{
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -25%;
+    top: 50%;
+    margin-top: -4%;
+    background-color: rgba(168, 222, 179, 0.35);
+    padding: 2%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
 }
 .logo{
   font-size: 20px
 }
-.ui.menu{
+.ui.menu.stackable{
   background-color: $color-700;
   color: $color-50;
   .icon:not(.mobile-spotlight){
@@ -178,10 +195,11 @@ body{
   top: 0;
   height: 100%;
   box-shadow: -1px 0 42px -4px $color-900;
+  z-index: 9999;
   .icon.remove{
     position: absolute;
     left: 0;
-    top: 0px;
+    // top: 0px;
     color: $color-50;
     font-size: 31px;
     cursor: pointer;
@@ -192,20 +210,36 @@ body{
     .table.items-list{
       width: 100%;
     }
-    tbody td ul.cell-container{
-      width: 100%;
-      li{
-        float: left;
-        width: 50%;
-        list-style: none;
-        &:nth-child(2){
-          width: 30px;
-          text-align: center;
-          float: right;
-          div{
-            padding: 4px;
-          }
-        }
+    // tbody td ul.cell-container{
+    //   width: 100%;
+    //   li{
+    //     float: left;
+    //     width: 50%;
+    //     list-style: none;
+    //     &:nth-child(2){
+    //       width: 30px;
+    //       text-align: center;
+    //       float: right;
+    //       div{
+    //         padding: 4px;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}
+tbody td ul.cell-container{
+  width: 100%;
+  li{
+    float: left;
+    width: 50%;
+    list-style: none;
+    &:nth-child(2){
+      width: 30px;
+      text-align: center;
+      float: right;
+      div{
+        padding: 4px;
       }
     }
   }
@@ -267,13 +301,13 @@ body{
   div.scroller{
     // float: left;
     // width: 100%;
-    height: 100%;
+    // height: 100%;
     width: 100%;
     position: absolute;
-    overflow: auto;
-    .ui.grid{
+    overflow: hidden;
+    & > .ui.grid{
       width: 400%;
-      height: 100%;
+      // height: 100%;
     }
     .module-container{
       position: relative;
@@ -283,14 +317,39 @@ body{
         position: absolute;
         top: 0;
         left: 0;
-        background-image: url(../images/1.jpg);
+        // background-image: url(../images/1.jpg);
         width: 100%;
-        height: 100%;
+        // height: 100%;
         opacity: 0.2;
         z-index: -1;
         background-repeat: no-repeat;
         background-position: center 0;
         background-size: cover;
+      }
+      .dashboard-container{
+        // padding: 2%;
+        h4.divider.header{
+          padding: 10px 0;
+          font-size: 18px;
+          i{
+            font-size: 20px;
+          }
+        }
+        .transaction-modules, .profile-modules{
+          padding: 0 30px;
+          .module-icon.big{
+            border: 1px solid gray;
+            border-radius: 4px;
+            margin-right: 0 2px;  
+            padding: 40px 0; 
+            text-align: center;
+          }
+        }
+      }
+      .action-wrap{
+        .dimmer{
+          cursor: pointer;
+        }
       }
     }
   }
@@ -316,3 +375,4 @@ body{
     }
   }
 }
+

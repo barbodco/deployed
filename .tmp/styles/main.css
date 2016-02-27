@@ -8807,51 +8807,69 @@ body {
 body {
   background-color: #ECEFF1;
 }
+/* line 137, ../../app/styles/main.scss */
+body.in-login-bg {
+  background: url(../images/login-bg.jpg) no-repeat center center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 5001px rgba(59, 183, 80, 0.2);
+}
+/* line 142, ../../app/styles/main.scss */
+body .login-wrapper {
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  margin-left: -25%;
+  top: 50%;
+  margin-top: -4%;
+  background-color: rgba(168, 222, 179, 0.35);
+  padding: 2%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-/* line 138, ../../app/styles/main.scss */
+/* line 155, ../../app/styles/main.scss */
 .logo {
   font-size: 20px;
 }
 
-/* line 141, ../../app/styles/main.scss */
-.ui.menu {
+/* line 158, ../../app/styles/main.scss */
+.ui.menu.stackable {
   background-color: #455A64;
   color: #ECEFF1;
 }
-/* line 144, ../../app/styles/main.scss */
-.ui.menu .icon:not(.mobile-spotlight) {
+/* line 161, ../../app/styles/main.scss */
+.ui.menu.stackable .icon:not(.mobile-spotlight) {
   font-size: 25px;
   color: #ECEFF1;
 }
-/* line 148, ../../app/styles/main.scss */
-.ui.menu .item::before {
+/* line 165, ../../app/styles/main.scss */
+.ui.menu.stackable .item::before {
   width: 1px;
   background: #546E7A;
 }
 
-/* line 153, ../../app/styles/main.scss */
+/* line 170, ../../app/styles/main.scss */
 .radio, .checkbox {
   margin: initial;
 }
 
-/* line 157, ../../app/styles/main.scss */
+/* line 174, ../../app/styles/main.scss */
 .ui.checkbox input[type="checkbox"],
 .ui.checkbox input[type="radio"] {
   top: -4px;
   left: 20px;
 }
 
-/* line 163, ../../app/styles/main.scss */
+/* line 180, ../../app/styles/main.scss */
 .selectors {
   width: 30px;
 }
 
-/* line 167, ../../app/styles/main.scss */
+/* line 184, ../../app/styles/main.scss */
 .ui.menu:not(.vertical) .item.top-header .input.nav-input {
   margin-right: 16px;
 }
 
-/* line 171, ../../app/styles/main.scss */
+/* line 188, ../../app/styles/main.scss */
 .body-wrapper.over-slider {
   transition: all 0.5s, color 2s;
   width: 40%;
@@ -8862,52 +8880,53 @@ body {
   top: 0;
   height: 100%;
   box-shadow: -1px 0 42px -4px #263238;
+  z-index: 9999;
 }
-/* line 181, ../../app/styles/main.scss */
+/* line 199, ../../app/styles/main.scss */
 .body-wrapper.over-slider .icon.remove {
   position: absolute;
   left: 0;
-  top: 0px;
   color: #ECEFF1;
   font-size: 31px;
   cursor: pointer;
 }
-/* line 189, ../../app/styles/main.scss */
+/* line 207, ../../app/styles/main.scss */
 .body-wrapper.over-slider .table {
   height: 99%;
   width: 100%;
 }
-/* line 192, ../../app/styles/main.scss */
+/* line 210, ../../app/styles/main.scss */
 .body-wrapper.over-slider .table .table.items-list {
   width: 100%;
 }
-/* line 195, ../../app/styles/main.scss */
-.body-wrapper.over-slider .table tbody td ul.cell-container {
+
+/* line 231, ../../app/styles/main.scss */
+tbody td ul.cell-container {
   width: 100%;
 }
-/* line 197, ../../app/styles/main.scss */
-.body-wrapper.over-slider .table tbody td ul.cell-container li {
+/* line 233, ../../app/styles/main.scss */
+tbody td ul.cell-container li {
   float: left;
   width: 50%;
   list-style: none;
 }
-/* line 201, ../../app/styles/main.scss */
-.body-wrapper.over-slider .table tbody td ul.cell-container li:nth-child(2) {
+/* line 237, ../../app/styles/main.scss */
+tbody td ul.cell-container li:nth-child(2) {
   width: 30px;
   text-align: center;
   float: right;
 }
-/* line 205, ../../app/styles/main.scss */
-.body-wrapper.over-slider .table tbody td ul.cell-container li:nth-child(2) div {
+/* line 241, ../../app/styles/main.scss */
+tbody td ul.cell-container li:nth-child(2) div {
   padding: 4px;
 }
 
-/* line 213, ../../app/styles/main.scss */
+/* line 247, ../../app/styles/main.scss */
 .body-wrapper.hide-over-slider {
   right: -40%;
 }
 
-/* line 216, ../../app/styles/main.scss */
+/* line 250, ../../app/styles/main.scss */
 .ui.page.dimmer.global-spotlight {
   position: fixed;
   width: 100%;
@@ -8915,7 +8934,7 @@ body {
   background-color: rgba(96, 125, 139, 0.7);
   top: 0;
 }
-/* line 223, ../../app/styles/main.scss */
+/* line 257, ../../app/styles/main.scss */
 .ui.page.dimmer.global-spotlight div.sl-container {
   position: relative;
   width: 100%;
@@ -8923,7 +8942,7 @@ body {
   top: 50%;
   margin-top: -10%;
 }
-/* line 230, ../../app/styles/main.scss */
+/* line 264, ../../app/styles/main.scss */
 .ui.page.dimmer.global-spotlight div.sl-container div.hider {
   width: 40%;
   background-color: rgba(69, 90, 100, 0.7);
@@ -8931,74 +8950,95 @@ body {
   position: absolute;
   top: 0;
 }
-/* line 237, ../../app/styles/main.scss */
+/* line 271, ../../app/styles/main.scss */
 .ui.page.dimmer.global-spotlight div.sl-container div.hider:nth-child(1) {
   left: 0;
 }
-/* line 240, ../../app/styles/main.scss */
+/* line 274, ../../app/styles/main.scss */
 .ui.page.dimmer.global-spotlight div.sl-container div.hider:last-child {
   right: 0;
 }
-/* line 243, ../../app/styles/main.scss */
+/* line 277, ../../app/styles/main.scss */
 .ui.page.dimmer.global-spotlight div.sl-container div.module-icon-wrapper {
   position: absolute;
   width: 100%;
 }
-/* line 253, ../../app/styles/main.scss */
+/* line 287, ../../app/styles/main.scss */
 .ui.page.dimmer.global-spotlight div.sl-container div.module-icon-wrapper i {
   font-size: 84px;
   transition: all 0.5s, color 2s;
 }
-/* line 256, ../../app/styles/main.scss */
+/* line 290, ../../app/styles/main.scss */
 .ui.page.dimmer.global-spotlight div.sl-container div.module-icon-wrapper i.selected {
   margin: 0 10%;
 }
 
-/* line 264, ../../app/styles/main.scss */
+/* line 298, ../../app/styles/main.scss */
 .module-wrapper {
   width: 500%;
   height: 100%;
 }
-/* line 267, ../../app/styles/main.scss */
+/* line 301, ../../app/styles/main.scss */
 .module-wrapper div.scroller {
-  height: 100%;
   width: 100%;
   position: absolute;
-  overflow: auto;
+  overflow: hidden;
 }
-/* line 274, ../../app/styles/main.scss */
-.module-wrapper div.scroller .ui.grid {
+/* line 308, ../../app/styles/main.scss */
+.module-wrapper div.scroller > .ui.grid {
   width: 400%;
-  height: 100%;
 }
-/* line 278, ../../app/styles/main.scss */
+/* line 312, ../../app/styles/main.scss */
 .module-wrapper div.scroller .module-container {
   position: relative;
 }
-/* line 280, ../../app/styles/main.scss */
+/* line 314, ../../app/styles/main.scss */
 .module-wrapper div.scroller .module-container::after {
   content: "";
   display: block;
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url(../images/1.jpg);
   width: 100%;
-  height: 100%;
   opacity: 0.2;
   z-index: -1;
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: cover;
 }
-/* line 297, ../../app/styles/main.scss */
+/* line 331, ../../app/styles/main.scss */
+.module-wrapper div.scroller .module-container .dashboard-container h4.divider.header {
+  padding: 10px 0;
+  font-size: 18px;
+}
+/* line 334, ../../app/styles/main.scss */
+.module-wrapper div.scroller .module-container .dashboard-container h4.divider.header i {
+  font-size: 20px;
+}
+/* line 338, ../../app/styles/main.scss */
+.module-wrapper div.scroller .module-container .dashboard-container .transaction-modules, .module-wrapper div.scroller .module-container .dashboard-container .profile-modules {
+  padding: 0 30px;
+}
+/* line 340, ../../app/styles/main.scss */
+.module-wrapper div.scroller .module-container .dashboard-container .transaction-modules .module-icon.big, .module-wrapper div.scroller .module-container .dashboard-container .profile-modules .module-icon.big {
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin-right: 0 2px;
+  padding: 40px 0;
+  text-align: center;
+}
+/* line 350, ../../app/styles/main.scss */
+.module-wrapper div.scroller .module-container .action-wrap .dimmer {
+  cursor: pointer;
+}
+/* line 356, ../../app/styles/main.scss */
 .module-wrapper .slide-buttons {
   bottom: 0;
   position: absolute;
   text-align: center;
   width: 100%;
 }
-/* line 302, ../../app/styles/main.scss */
+/* line 361, ../../app/styles/main.scss */
 .module-wrapper .slide-buttons li {
   transition: all 0.2s, color 2s;
   float: left;
@@ -9007,7 +9047,7 @@ body {
   color: #37474F;
   height: 30px;
 }
-/* line 309, ../../app/styles/main.scss */
+/* line 368, ../../app/styles/main.scss */
 .module-wrapper .slide-buttons li:hover, .module-wrapper .slide-buttons li.current {
   font-size: 26px;
   color: #78909C;
