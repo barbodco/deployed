@@ -57,7 +57,7 @@
       <div class="ui segment full-height"><form class="ui form">
               <div class="field">
                 <label>Code</label>
-                <input type="text" name="first-name" placeholder="Coe No.">
+                <input type="text" name="first-name" placeholder="Code No.">
               </div>
               <div class="fields">
                 <div class="thirteen wide field">
@@ -207,7 +207,7 @@
     <div class="module-wrapper" ng-controller="DashboardCtrl">
       <div class="scroller">
         <div class="ui grid">
-          <div class="four wide column module-container">
+          <!-- <div class="four wide column module-container">
             <div class="dashboard-container">
               <h4 class="ui horizontal divider header">
                 <i class="tag icon"></i>
@@ -307,32 +307,35 @@
                 </div>
               </div>
               <div class="announcements-wrapper">
-                  <!-- Announcements -->
               </div>
               <div class="history-wrapper"></div>
             </div>
-          </div>
+          </div> -->
           <div class="four wide column module-container">
-            <div class="ui grid">
-              <div class="sixteen wide column">
+            <div class="ui stackable grid">
+              <!-- <div class="sixteen wide column">
                 
-              </div>              
+              </div>   -->            
               <div class="two wide column">
-                <div class="ui secondary vertical pointing menu">
+                <div class="ui secondary vertical pointing menu modules-list">
                   <a class="item">
-                    Action No.1
+                    Dashboard
                   </a>
                   <a class="item">
-                    Action No.2
+                    Brand
                   </a>
                   <a class="item active">
                     Action No.3
                   </a>
                 </div>
               </div>
-              <div class="fourteen wide column">
-                <div class="ui error message">
-                  Information entered will be a row in you brand list
+              <div class="fourteen wide column ">
+                <div class="ui ignored positive icon message">
+                  <i class="mobile icon"></i>
+                  <div class="content">
+                    <h3 class="header">Responsive Element</h3>
+                    <p>Item views are designed to be responsive with images stacking at mobile resolutions.</p>
+                  </div>
                 </div>
                 <!-- <div class="ui grid stackable">
                   <div class="sixteen wide column action-wrap">   
@@ -377,7 +380,7 @@
                     </form>
                   </div>                
                 </div> -->
-                <div class="column">
+                <div class="column generic-grid">
                   <div class="ui top attached menu">
                     <div class="ui dropdown icon item">
                       <i class="wrench icon"></i>
@@ -406,7 +409,7 @@
                   <div class="ui small button" ng-click="closeOverSlider()">
                     Add
                   </div>
-                    <table class="ui compact celled definition table" ng-init="genericAjaxCall()">
+                    <table class="ui compact celled table" ng-init="genericAjaxCall()">
                       <thead>
                         <tr>
                           <th>
@@ -515,15 +518,19 @@
                       <tfoot class="full-width">
                         <tr>
                           <th colspan="5">
-                            <div class="ui small button">
-                              Save
+                          <div class="ui stackable grid">
+                            <div class="ten wide column">
+                              <div class="ui small button">
+                                Save
+                              </div>
+                              <div class="ui small button">
+                                Verify
+                              </div>
+                              <div class="ui small button">
+                                Approve
+                              </div>
                             </div>
-                            <div class="ui small button">
-                              Verify
-                            </div>
-                            <div class="ui small button">
-                              Approve
-                            </div>
+                            <div class="six wide column">
                               <div class="ui right floated pagination menu">
                                 <a class="icon item">
                                   <i class="left chevron icon"></i>
@@ -537,9 +544,12 @@
                                   <i class="right chevron icon"></i>
                                 </a>
                               </div>
-                            <div class="ui right floated red small button middle aligned">
-                              Cancel
+                              <div class="ui right floated red small button middle aligned">
+                                Cancel
+                              </div>
+                              
                             </div>
+                          </div>
                           </th>
                         </tr>
                       </tfoot>
@@ -550,11 +560,11 @@
               </div>
             </div>
           </div>
-          <div class="four wide column module-container"></div>
-          <div class="four wide column module-container"></div>
+          <!-- <div class="four wide column module-container"></div>
+          <div class="four wide column module-container"></div> -->
         </div>
       </div>
-      <div class="slide-buttons">
+      <!-- <div class="slide-buttons">
         <ul>
           <li class="current" ng-click="moduleSlider(0)">
             <i class="square icon"></i>
@@ -569,7 +579,7 @@
             <i class="square icon"></i>
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
     <!-- <div class="ui page dimmer global-spotlight">
       <div class="sl-container">

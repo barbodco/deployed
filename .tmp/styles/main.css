@@ -9006,20 +9006,36 @@ tbody td ul.cell-container li:nth-child(2) div {
   background-position: center 0;
   background-size: cover;
 }
-/* line 331, ../../app/styles/main.scss */
+/* line 329, ../../app/styles/main.scss */
+.module-wrapper div.scroller .module-container .modules-list {
+  width: 100%;
+  min-width: 93px;
+}
+/* line 332, ../../app/styles/main.scss */
+.module-wrapper div.scroller .module-container .modules-list a {
+  background-color: #90A4AE;
+  color: #CFD8DC;
+  transition: all 0.2s ease;
+}
+/* line 336, ../../app/styles/main.scss */
+.module-wrapper div.scroller .module-container .modules-list a:hover {
+  background-color: #607D8B !important;
+  color: #B0BEC5;
+}
+/* line 344, ../../app/styles/main.scss */
 .module-wrapper div.scroller .module-container .dashboard-container h4.divider.header {
   padding: 10px 0;
   font-size: 18px;
 }
-/* line 334, ../../app/styles/main.scss */
+/* line 347, ../../app/styles/main.scss */
 .module-wrapper div.scroller .module-container .dashboard-container h4.divider.header i {
   font-size: 20px;
 }
-/* line 338, ../../app/styles/main.scss */
+/* line 351, ../../app/styles/main.scss */
 .module-wrapper div.scroller .module-container .dashboard-container .transaction-modules, .module-wrapper div.scroller .module-container .dashboard-container .profile-modules {
   padding: 0 30px;
 }
-/* line 340, ../../app/styles/main.scss */
+/* line 353, ../../app/styles/main.scss */
 .module-wrapper div.scroller .module-container .dashboard-container .transaction-modules .module-icon.big, .module-wrapper div.scroller .module-container .dashboard-container .profile-modules .module-icon.big {
   border: 1px solid gray;
   border-radius: 4px;
@@ -9027,31 +9043,12 @@ tbody td ul.cell-container li:nth-child(2) div {
   padding: 40px 0;
   text-align: center;
 }
-/* line 350, ../../app/styles/main.scss */
+/* line 363, ../../app/styles/main.scss */
 .module-wrapper div.scroller .module-container .action-wrap .dimmer {
   cursor: pointer;
 }
-/* line 356, ../../app/styles/main.scss */
-.module-wrapper .slide-buttons {
-  bottom: 0;
-  position: absolute;
-  text-align: center;
-  width: 100%;
-}
-/* line 361, ../../app/styles/main.scss */
-.module-wrapper .slide-buttons li {
-  transition: all 0.2s, color 2s;
-  float: left;
-  list-style: none;
-  margin-right: 10px;
-  color: #37474F;
-  height: 30px;
-}
-/* line 368, ../../app/styles/main.scss */
-.module-wrapper .slide-buttons li:hover, .module-wrapper .slide-buttons li.current {
-  font-size: 26px;
-  color: #78909C;
-  margin-top: -8px;
-  margin-left: -6px;
-  margin-right: -1px;
+
+/* line 393, ../../app/styles/main.scss */
+div.generic-grid tfoot div.pagination {
+  margin-top: -4px !important;
 }

@@ -2,7 +2,7 @@
 
 var barbod = angular.module('barbod');
 
-barbod.controller('LoginCtrl', ['$scope','$location','$templateRequest',
+barbod.controller('LoginCtrl', ['$scope','$location',//'$templateRequest',
    function($scope,$location,$templateRequest){
     $('body').addClass('in-login-bg');
     $scope.go = function(url){

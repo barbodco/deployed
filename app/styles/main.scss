@@ -326,6 +326,19 @@ tbody td ul.cell-container{
         background-position: center 0;
         background-size: cover;
       }
+      .modules-list{
+        width: 100%;
+        min-width: 93px;
+        a{
+          background-color: $color-300;
+          color: $color-100;
+          @include transition(all .2s ease);
+          &:hover{
+            background-color: $color-500!important;
+            color: $color-200;
+          }
+        }
+      }
       .dashboard-container{
         // padding: 2%;
         h4.divider.header{
@@ -353,26 +366,32 @@ tbody td ul.cell-container{
       }
     }
   }
-  .slide-buttons{
-    bottom: 0;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    li{
-      @include transition(all .2s, color 2s);
-      float: left;
-      list-style: none;
-      margin-right: 10px;
-      color: $color-800;
-      height: 30px;
-      &:hover,&.current{
-        font-size: 26px;
-        color: $color-400;
-        margin-top: -8px;
-        margin-left: -6px;
-        margin-right: -1px;
-      }
+  // .slide-buttons{
+  //   bottom: 0;
+  //   position: absolute;
+  //   text-align: center;
+  //   width: 100%;
+  //   li{
+  //     @include transition(all .2s, color 2s);
+  //     float: left;
+  //     list-style: none;
+  //     margin-right: 10px;
+  //     color: $color-800;
+  //     height: 30px;
+  //     &:hover,&.current{
+  //       font-size: 26px;
+  //       color: $color-400;
+  //       margin-top: -8px;
+  //       margin-left: -6px;
+  //       margin-right: -1px;
+  //     }
+  //   }
+  // }
+}
+div.generic-grid{
+  tfoot{
+    div.pagination{
+      margin-top: -4px!important;
     }
   }
 }
-

@@ -17,15 +17,14 @@ var barbod = angular.module('barbod');
   //   }]);
 
   barbod.controller('DashboardCtrl', function ($scope,$http) {
-    $('.in-login-bg').removeClass('in-login-bg')
+    $('.in-login-bg').removeClass('in-login-bg');
     $('.dropdown').dropdown({
       // you can use any ui transition
       transition: 'drop'
-    })
-  ;
+    });
     //table sorter global
 
-    $('table').tablesort();
+    // $('table').tablesort();
 
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
@@ -86,20 +85,20 @@ var barbod = angular.module('barbod');
         }
     });
     // testAjax("http://service.webbels.net/Service/BrandService.svc/TestGetAll");
-    function testAjax(myUrl){
-      $.ajax({
-          type : "Get",
-          url :myUrl,
-          dataType :"json",
-          jsonp: false,
-          jsonpCallback: "myJsonMethod",
-          success : function(data){
-              console.log(data);},
-          error : function(httpReq,status,exception){
-              console.log(status+" "+exception);
-          }
-      });
-    }
+    // function testAjax(myUrl){
+    //   $.ajax({
+    //       type : "Get",
+    //       url :myUrl,
+    //       dataType :"json",
+    //       jsonp: false,
+    //       jsonpCallback: "myJsonMethod",
+    //       success : function(data){
+    //           console.log(data);},
+    //       error : function(httpReq,status,exception){
+    //           console.log(status+" "+exception);
+    //       }
+    //   });
+    // }
   });
   
  
