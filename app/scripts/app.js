@@ -23,15 +23,15 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'scripts/login/login.tpl.html',
+        templateUrl: 'views/login.tpl.html',
         controller: 'LoginCtrl',
       })
       .when('/dashboard', {
-        templateUrl: 'scripts/dashboard/main-dashboard.tpl.html',
+        templateUrl: 'views/main-dashboard.tpl.html',
         controller: 'mainDashboardCtrl'
       })
       .when('/dashboard/modules', {
-        templateUrl: 'scripts/dashboard/dashboard.tpl.html',
+        templateUrl: 'views/dashboard.tpl.html',
         controller: 'DashboardCtrl'
       });
   //     .otherwise({

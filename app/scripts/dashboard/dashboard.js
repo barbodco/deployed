@@ -87,7 +87,7 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest',
       // });
 
     $scope.templateRequester = function(name , location){
-      $templateRequest('scripts/templates/'+name+'.tpl.html').then(function(html){
+      $templateRequest('views/'+name+'.tpl.html').then(function(html){
           // Convert the html to an actual DOM node
           var template = angular.element(html);
           // Append it to the directive element
@@ -146,13 +146,13 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest',
   barbod.directive('genericTable', function() {
       return {
           restrict: 'AE',
-          templateUrl: 'scripts/dashboard/tables.tpl.html'
+          templateUrl: 'views/tables.tpl.html'
       };
   });
   barbod.directive('genericOverSlider', function() {
       return {
           restrict: 'AE',
-          templateUrl: 'scripts/dashboard/overslider.tpl.html'
+          templateUrl: 'views/overslider.tpl.html'
       };
   });
 
