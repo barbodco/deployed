@@ -15,7 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    /* SERVICES */
+    // 'services.ajaxCall'
+    // 'genericTablessss'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -24,6 +27,10 @@ angular
         controller: 'LoginCtrl',
       })
       .when('/dashboard', {
+        templateUrl: 'scripts/dashboard/main-dashboard.tpl.html',
+        controller: 'mainDashboardCtrl'
+      })
+      .when('/dashboard/modules', {
         templateUrl: 'scripts/dashboard/dashboard.tpl.html',
         controller: 'DashboardCtrl'
       });

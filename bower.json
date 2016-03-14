@@ -13,7 +13,7 @@
     "angular-touch": "^1.3.0",
     "semantic": "^2.1.8",
     "jquery.hotkeys":"",
-    "jquery-tablesort":""
+    "jquery-tablesort":"" 
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0",

@@ -8886,6 +8886,7 @@ body .login-wrapper {
 .body-wrapper.over-slider .icon.remove {
   position: absolute;
   left: 0;
+  top: 0px;
   color: #ECEFF1;
   font-size: 31px;
   cursor: pointer;
@@ -9051,4 +9052,127 @@ tbody td ul.cell-container li:nth-child(2) div {
 /* line 393, ../../app/styles/main.scss */
 div.generic-grid tfoot div.pagination {
   margin-top: -4px !important;
+}
+
+/* line 398, ../../app/styles/main.scss */
+.main-modules-wrapper {
+  padding: 32px !important;
+}
+/* line 400, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module {
+  transition: all 0.2s ease;
+  width: calc(22% - 2px);
+  height: 300px;
+  text-align: center;
+  font-size: 10vw;
+  background-color: #78909C;
+  box-sizing: border-box;
+  padding: 40px;
+  float: left;
+  margin: 0 1px;
+  color: #CFD8DC;
+  position: relative;
+  overflow: hidden;
+}
+/* line 414, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module .name {
+  font-size: 13px;
+}
+/* line 417, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module div.subs {
+  transition: all 0.2s ease;
+  position: absolute;
+  font-size: 12px;
+  width: 100%;
+  left: 0;
+  height: 100%;
+  background-color: rgba(64, 80, 88, 0.38);
+  top: 100%;
+  box-sizing: border-box;
+}
+/* line 427, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module div.subs ul {
+  width: inherit;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+/* line 432, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module div.subs ul li.each-sub {
+  float: left;
+  list-style: none;
+  width: calc(33.3333% - 2px);
+  margin: 0 1px;
+  box-sizing: border-box;
+  background-color: #455A64;
+  height: 80px;
+  padding: 16px 24px;
+  cursor: pointer;
+}
+/* line 442, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module div.subs ul li.each-sub .combination-icon {
+  color: #455A64;
+}
+/* line 445, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module div.subs ul li.each-sub:hover {
+  background-color: #263238;
+}
+/* line 450, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module div.subs div.main-direction {
+  height: 80px;
+  width: 100%;
+  background-color: #455A64;
+  box-sizing: box-sizing;
+  padding: 20px;
+}
+/* line 456, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module div.subs div.main-direction:hover {
+  background-color: #263238;
+}
+/* line 460, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module div.subs .corner.icon {
+  color: #920000;
+}
+/* line 464, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module:hover {
+  padding: 0;
+  font-size: 4vw;
+  float: left;
+}
+/* line 468, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module:hover div.subs {
+  top: 15%;
+  padding: 23px;
+}
+/* line 472, ../../app/styles/main.scss */
+.main-modules-wrapper .each-module:hover .name {
+  transition: all 0.2s ease;
+}
+/* line 477, ../../app/styles/main.scss */
+.main-modules-wrapper .module-drop {
+  height: 300px;
+  background-color: #607D8B;
+  color: #CFD8DC;
+  width: calc(4% - 2px);
+  float: left;
+  font-size: 6vw;
+  box-sizing: border-box;
+}
+/* line 485, ../../app/styles/main.scss */
+.main-modules-wrapper .module-drop:hover {
+  background-color: #546E7A;
+}
+/* line 488, ../../app/styles/main.scss */
+.main-modules-wrapper .module-drop i {
+  width: 53px;
+}
+
+/* line 496, ../../app/styles/main.scss */
+table tbody tr {
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+/* line 499, ../../app/styles/main.scss */
+table tbody tr:hover {
+  background-color: #cdd6db;
 }

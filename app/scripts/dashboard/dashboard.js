@@ -9,14 +9,8 @@
  */
 var barbod = angular.module('barbod');
 
-  // barbod.config(['$routeProvider', function ($routeProvider) {
-  //   $routeProvider.when('/dashboard', {
-  //     templateUrl:'scripts/dashboard/dashboard.tpl.html',
-  //     controller:'DashbaordCtrl'
-  //     });
-  //   }]);
-
-  barbod.controller('DashboardCtrl', function ($scope,$http) {
+barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest',
+  function ($scope,$http,$templateRequest) {
     $('.in-login-bg').removeClass('in-login-bg');
     $('.dropdown').dropdown({
       // you can use any ui transition
@@ -46,16 +40,64 @@ var barbod = angular.module('barbod');
     $scope.showColumn = {};
     $scope.limitation = 10;
     $scope.typeControl = {};
-    $http.get('http://service.webbels.net/Service/BrandService.svc/TestGetAll')
+    // // $http.get('http://service.webbels.net/Service/BrandService.svc/TestGetAll')
     // $http.get('table.json')
-      .then(function(response){
+    //   .then(function(response){
+    //     $scope.mainData = response.data.GD;
+    //     // $scope.limitation = $scope.mainData.rowsperpage;
+    //     console.log(response);
+    //   });
+    $scope.dataTableRequester = function(requesterId){
+      console.log("here");
+      $('#'+requesterId).append( '<div class="ui active inverted dimmer">\
+                                    <div class="ui medium text loader">Loading</div>\
+                                  </div>');
+  
+      $http.get('table.json').then(function(response) {
         $scope.mainData = response.data.GD;
-        // $scope.limitation = $scope.mainData.rowsperpage;
-        console.log(response);
+        $('#'+requesterId).children('.inverted.dimmer').remove();
+        console.log($scope.mainData);
       });
+    };
+    $scope.brandAdd = function(){
+      /* Add brand function
+       1. Assume that validation is done
+       2. Assume that this is the correct json
+      */
+      // Getting ready data
+      var data = {
+        brandCode : $scope.validation.brandCode,
+        brandDescription: $scope.validation.brandDescription,
+        brandActive: $scope.validation.brandActive
+      }
+      console.log(data);
+
+      // if there was no error in saving data then:
+      $scope.closeOverSlider()
+    }
+
+
+    $scope.branDelete = function(){
+
+    }
+      // $http.get('../table.json').then(function(response) {
+      //   $scope.mainData = response.data.GD;
+      //   $('#brandModule').children('.inverted.dimmer').remove();
+      //   console.log($scope.mainData);
+      // });
+
+    $scope.templateRequester = function(name , location){
+      $templateRequest('scripts/templates/'+name+'.tpl.html').then(function(html){
+          // Convert the html to an actual DOM node
+          var template = angular.element(html);
+          // Append it to the directive element
+          $('#'+location).html(template);
+      });
+    }
     $scope.closeOverSlider = function(){
         $('.over-slider').toggleClass('hide-over-slider');
-        $('.page.dimmer').dimmer('show');
+        $('.page.dimmer').toggleClass('active');
+        $('#over-slider').html('');
     };
     $scope.showItems = function(index){
         $('.items-list-'+index).toggleClass('hide');
@@ -99,6 +141,19 @@ var barbod = angular.module('barbod');
     //       }
     //   });
     // }
+  }]);
+
+  barbod.directive('genericTable', function() {
+      return {
+          restrict: 'AE',
+          templateUrl: 'scripts/dashboard/tables.tpl.html'
+      };
   });
-  
+  barbod.directive('genericOverSlider', function() {
+      return {
+          restrict: 'AE',
+          templateUrl: 'scripts/dashboard/overslider.tpl.html'
+      };
+  });
+
  
