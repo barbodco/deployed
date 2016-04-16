@@ -28,7 +28,7 @@
 	$scope.modules = {};
 	$scope.dashboardGenerator = function(){
 		// ajax call first
-		var response = {userId: "2564576577888-3455454-4555", sessionValid: "true", access: "|M(B-PO-IT-DI)|"};
+		var response = {userId: "2564576577888-3455454-4555", sessionValid: "true", access: "|M(PO-B-IT-DI)|"};
 			$scope.accessSeperator(response);
 	};
 	$scope.accessSeperator = function(data){

@@ -1,22 +1,22 @@
-<form class="ui form">
+<form class="ui form" ng-controller="brandAdd">
   <div class="field">
     <label>Code</label>
-    <input type="text" ng-model="validation.brandCode"
+    <input type="text" ng-model="brand.code"
      name="first-name" placeholder="Code No.">
   </div>
   <div class="fields">
     <div class="thirteen wide field">
       <label>Description</label>
-      <input type="text" name="last-name" placeholder="Description" ng-model="validation.brandDescription">
+      <input type="text" name="last-name" placeholder="Description" ng-model="brand.description">
     </div>
     <div class="three wide field">
       <div class="ui segment">
         <div class="ui toggle checkbox">
-          <input type="checkbox" name="gift" tabindex="0" class="hidden" ng-model="validation.brandActive ">
+          <input type="checkbox" name="gift" tabindex="0" class="hidden" ng-model="brand.active ">
           <label>Active</label>
         </div>
       </div>
     </div>
   </div>
-  <button class="ui button" type="submit" ng-click="brandAdd()">Submit</button>
+  <div class="ui button" ng-click="brandAdding()">Save</div>
 </form>

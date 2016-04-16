@@ -9176,3 +9176,10 @@ table tbody tr {
 table tbody tr:hover {
   background-color: #cdd6db;
 }
+
+/* line 508, ../../app/styles/main.scss */
+.ui.labeled.brand-edit-each {
+  margin: 2px 0;
+}
+
+/*# sourceMappingURL=main.css.map */

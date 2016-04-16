@@ -1,0 +1,39 @@
+{
+	"controllers":[
+		"Brand"
+
+	], 
+	"function":{
+		"public":{
+			"userId" : "",
+			"browserInfo" : "",
+		},
+		"paginate":{
+			"rowIndex" :0,
+			"rowSize" : 0,
+			"orderColumn" : "",
+			"orderType" : "",
+			"searchKeyword" : "",
+			"advanceSearch" :""
+			}
+		},
+		"getbyid":{
+			"id": ""
+		},
+		"getbycode":{
+			"code": ""
+		},
+		"delete":{
+			"ids": ""
+		},
+		"save":{
+			"userId": "",
+			"browserInfo": "",
+			"Id": "",
+			"Code": "",
+			"Description": "",
+			"CompanyId": "",
+			"IsActive": 0,
+			"IsDeleted": 0
+		}
+}

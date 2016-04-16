@@ -24,15 +24,24 @@
     </div>
   </div>
   <div class="ui bottom attached segment">
-  <div class="ui small button" ng-click="closeOverSlider();templateRequester('brandAdd','over-slider')">
+  <button class="ui large button" ng-click="closeOverSlider();templateRequester('brandAdd','over-slider')">
+    <i class="add square icon"></i>
     Add
+  </button>
+  <div class="ui large button" ng-click="closeOverSlider();templateRequester('brandEdit','over-slider')" ng-class="{disabled: gridCheckBoxCounter === 0}">
+    <i class="edit square icon"></i>
+    Edit
+  </div>
+  <div class="ui large button" ng-click="closeOverSlider();templateRequester('brandDelete','over-slider')" ng-class="{disabled: gridCheckBoxCounter === 0}">
+    <i class="Delete square icon"></i>
+    Delete
   </div>
     <table  id="brandModule" class="ui compact celled table" ng-init="data = dataTableRequester('brandModule')">
       <thead>
         <tr>
           <th>
             <div class="ui checkbox">
-              <input type="checkbox">
+              <input type="checkbox"ng-click="checkAll()">
               <label></label>
             </div>
           </th>
@@ -43,21 +52,25 @@
         <tr  ng-repeat="values in mainData.data track by $index" ng-if="$index < limitation" ng-class="{ 'hide' : values === null }">
           <td class="selectors">
             <div class="ui checkbox">
-              <input type="checkbox">
+              <input type="checkbox" ng-click="gridCheckBoxStatus(values[0].value, values[3].value,values[2].value,values[1].value)" module-id="{{ values[0].value }}">
               <label></label>
             </div>
           </td>
-          <td ng-class="{'hide' : showColumn[0] === false}"  ng-click="closeOverSlider()">{{ values[0].value }}</td>
-          <td ng-class="{'hide' : showColumn[1] === false}"  ng-click="closeOverSlider()">
+          <!-- <td ng-class="{'hide' : showColumn[0] === false}"  ng-click="closeOverSlider();templateRequester('brandEdit','over-slider')">{{ values[0].value }}</td> -->
+          <td ng-class="{'hide' : showColumn[1] === false}"  ng-click="closeOverSlider();templateRequester('brandEdit','over-slider')" style="position:relative">
             <ul class="cell-container">
-              <li>{{ values[1].value }}</li>
+              <li>{{ values[1].value }}
+                <a class="ui left corner label">
+                  <i class="heart icon"></i>
+                </a>
+              </li>
               <li ng-click="showItems({{$index}})">
                 <div class="ui ignored warning message">
                   <i class="icon list right"></i>
                 </div>
               </li>
             </ul>
-            <table class="ui very basic collapsing celled table items-list-{{$index}} hide">
+            <!-- <table class="ui very basic collapsing celled table items-list-{{$index}} hide">
               <thead>
                 <tr>
                   <th>Mobile</th>
@@ -77,28 +90,25 @@
                   
                 </tr>
               </tbody>
-            </table>
-          <td ng-class="{'hide' : showColumn[3] === false}" class="disabled"  ng-click="closeOverSlider()">
+            </table> -->
+          <td ng-class="{'hide' : showColumn[3] === false}" class="disabled"  ng-click="closeOverSlider();templateRequester('brandEdit','over-slider')">
             <div class="ui center aligned">
               <div class="ui toggle checkbox">
-                <input type="checkbox" ng-checked="{{ values[2].value }}"> <label></label>
+                <input type="checkbox" ng-checked="{{ values[3].value }}"> <label></label>
               </div>
             </div>
           </td>
-          <td ng-class="{'hide' : showColumn[2] === false}"  ng-click="closeOverSlider()">{{ values[3].value }}</td>
+          <td ng-class="{'hide' : showColumn[2] === false}"  ng-click="closeOverSlider();templateRequester('brandEdit','over-slider')">{{ values[2].value }}</td>
         </tr>
       <tfoot class="full-width">
         <tr>
           <th colspan="5">
           <div class="ui stackable grid">
             <div class="ten wide column">
-              <div class="ui small button">
-                Save
-              </div>
-              <div class="ui small button">
+              <div class="ui large button" ng-class="{disabled: gridCheckBoxCounter === 0}">
                 Verify
               </div>
-              <div class="ui small button">
+              <div class="ui large button disabled">
                 Approve
               </div>
             </div>
@@ -116,7 +126,7 @@
                   <i class="right chevron icon"></i>
                 </a>
               </div>
-              <div class="ui right floated red small button middle aligned">
+              <div class="ui right floated red large button middle aligned">
                 Cancel
               </div>
               
