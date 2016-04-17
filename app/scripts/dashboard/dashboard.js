@@ -38,7 +38,7 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
           $('.brand-edit-each').popup({
             position : 'top center',
           });  
-        }
+        };
     
     $('.ui.page.dimmer.global-spotlight .ui.search')
       .search({
@@ -57,9 +57,9 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
     //   });
     $scope.dataTableRequester = function(requesterId){
       console.log("here");
-      $('#'+requesterId).append( '<div class="ui active inverted dimmer">\
-                                    <div class="ui medium text loader">Loading</div>\
-                                  </div>');
+      $('#'+requesterId).append( '<div class="ui active inverted dimmer">'+
+                                    '<div class="ui medium text loader">Loading</div>'+
+                                  '</div>');
   
       $http({
         url : 'http://service.webbels.net/brand/paginate/',
@@ -70,8 +70,8 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
             rowIndex : 1,
             rowSize : 10,
             orderColumn : 'code',
-            orderType : 'desc', //asc
-            searchKeyword : '',
+            orderType : 'desc', //asc 
+            searchKeyword : '', 
             advanceSearch : ''
           }
         }).then(function(response) {
@@ -88,9 +88,9 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
           brandCode : $scope.validation.brandCode,
           brandDescription: $scope.validation.brandDescription,
           brandActive: $scope.validation.brandActive
-        }
-      return data
-    }
+        };
+      return data;
+    };
     $scope.brandAdding = function(){
       /* Add brand function
        1. Assume that validation is done
@@ -99,11 +99,11 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
       */
       // Getting ready data
       var data  = angular.copy($scope.brand);
-          data['userId'] = '169055BD-24D6-4E10-9F98-D4A8C6E102C5';
-          data['browserInfo'] = 'Chrome Carany';
-          data['companyId'] =  '';
-          data['isActive'] = 1;
-          data['isDeleted'] =  0;
+          data.userId = '169055BD-24D6-4E10-9F98-D4A8C6E102C5';
+          data.browserInfo = 'Chrome Carany';
+          data.companyId =  '';
+          data.isActive = 1;
+          data.isDeleted =  0;
 
       $http({
         url : 'http://service.webbels.net/brand/save/',
@@ -118,8 +118,8 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
 
 
       // if there was no error in saving data then:
-      $scope.closeOverSlider()
-    }
+      $scope.closeOverSlider();
+    };
 
 
     $scope.brandDelete = function(){
@@ -129,9 +129,9 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
       });
       var length = ids.length;
       var data  = {};
-          data['userId'] = '169055BD-24D6-4E10-9F98-D4A8C6E102C5';//retrieve from a separate js file
-          data['browserInfo'] = 'Chrome Carany'; //retrieve from a separate js file
-          data['ids'] = ids;
+          data.userId = '169055BD-24D6-4E10-9F98-D4A8C6E102C5';//retrieve from a separate js file
+          data.browserInfo = 'Chrome Carany'; //retrieve from a separate js file
+          data.ids = ids;
 
       $http({
         url : 'http://service.webbels.net/brand/delete/',
@@ -145,7 +145,7 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
         console.log(response);
       
       });
-      $scope.closeOverSlider()
+      $scope.closeOverSlider();
       
             for (var i=0;i<length;i++){
               $('[module-id]').prop('checked', false); 
@@ -165,7 +165,7 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
           });  
       });
 
-    }
+    };
     $scope.closeOverSlider = function(){
         $('.over-slider').toggleClass('hide-over-slider');
         $('.page.dimmer').toggleClass('active');
@@ -190,7 +190,7 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
     $scope.gridCheckBoxCounter = 0;
     $scope.gridCheckBoxStatus = function(checkId, desc,status,name){
       if ($('[module-id="'+checkId+'"]').is(':checked')) {
-        $scope.gridCheckBoxCounter++
+        $scope.gridCheckBoxCounter++;
         $scope.gridCheckBox[checkId] = {
           id:checkId,
           description : desc,
@@ -199,17 +199,17 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
         };
       }else{
         delete $scope.gridCheckBox[checkId];
-        $scope.gridCheckBoxCounter--
+        $scope.gridCheckBoxCounter--;
       }
       console.log($scope.gridCheckBox);
       console.log($scope.gridCheckBoxCounter);
     };
     $scope.gridCheckBoxStatusRemover = function(checkId){
       delete $scope.gridCheckBox[checkId];
-    }
+    };
     $scope.checkAll = function(){
       $('[module-id]').trigger('click');
-    }
+    };
     // $(document).bind('keyup', '$', function() {
     //     console.log('key up');
     //     if (event.which === 17) {
