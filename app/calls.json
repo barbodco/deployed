@@ -1,12 +1,18 @@
 {
+	"endpoint": {
+		"main": "http://service.webbels.net",
+		"userLogin": "/user/login",
+		"paginate": "/paginate",
+		"methods": ["POST","GET"]
+	},
 	"controllers":[
-		"Brand"
+		"/Brand"
 
 	], 
 	"function":{
 		"public":{
 			"userId" : "",
-			"browserInfo" : "",
+			"browserInfo" : ""
 		},
 		"paginate":{
 			"rowIndex" :0,
@@ -15,8 +21,8 @@
 			"orderType" : "",
 			"searchKeyword" : "",
 			"advanceSearch" :""
-			}
 		},
+		
 		"getbyid":{
 			"id": ""
 		},
@@ -36,4 +42,6 @@
 			"IsActive": 0,
 			"IsDeleted": 0
 		}
+	}
+
 }

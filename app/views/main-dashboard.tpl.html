@@ -1,6 +1,6 @@
 <div ng-controller="mainDashboardCtrl">
 	<div class="main-modules-wrapper ui centered grid" ng-init="eachModules = dashboardGenerator()">
-		<div ng-repeat="eachModule in modules track by $index" class="each-module" ng-click="go('/dashboard/modules')">
+		<div ng-repeat="eachModule in modules track by $index" class="each-module">
 			<i class="{{eachModule.icon}} icon"></i>
 			<div class="name">{{eachModule.name}}</div>
 			<div class="subs">
@@ -13,7 +13,7 @@
 					</li>
 				</ul>
 				<div class="main-direction">
-					<i class="huge icons">
+					<i class="huge icons"  ng-click="go('/dashboard/modules')">
 						<i class="puzzle icon" ></i>
 						<i class="corner share icon combination-icon"></i>
 					</i>

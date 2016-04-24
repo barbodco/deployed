@@ -6,8 +6,7 @@
  * @description
  * # MainCtrl
  * Controller of the inventoryApp
- */
-// var barbod = angular.module('barbod');	
+ */	
 
   barbod.controller('mainDashboardCtrl', function($scope,$location) {
   	$('.shape').shape();

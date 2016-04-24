@@ -9,8 +9,23 @@
  */
 var barbod = angular.module('barbod');
 
-barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile',
-  function ($scope,$http,$templateRequest,$compile) {
+barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile','APIService',
+  function ($scope,$http,$templateRequest,$compile,APIService) {
+    $scope.awesomeThings = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
+    ]; 
+    // callsConfigs
+    // $scope.callConfig = {};
+      $http.get('calls.json').success(function(data) {
+        if ($scope.callConfig != undefined || $scope.callConfig !== null ) {
+          $scope.callConfig = data;
+        };
+       console.log($scope.callConfig)
+    });
+
+
     $('.in-login-bg').removeClass('in-login-bg');
     $('.dropdown').dropdown({
       // you can use any ui transition
@@ -20,67 +35,65 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
 
     // $('table').tablesort();
 
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-    var content = [
-      { title: 'Module1' },
-      { title: 'Module2' },
-      { title: 'Module3' },
-      { title: 'Module4' }
-    ];    
     console.log('DashbaordCtrl is ready');
     // mouseover info for each brand
-        $scope.mouseoverInfo = function(){
-          // console.log(id)
-          $('.brand-edit-each').popup({
-            position : 'top center',
-          });  
-        };
-    
-    $('.ui.page.dimmer.global-spotlight .ui.search')
-      .search({
-        source: content
-    });
+    $scope.mouseoverInfo = function(){
+    // console.log(id)
+    $('.brand-edit-each').popup({
+      position : 'top center',
+    });  
+    };
     $scope.mainData = '';
     $scope.showColumn = {};
-    $scope.limitation = 10;
+    // $scope.limitation = 10;
     $scope.typeControl = {};
-    // // $http.get('http://service.webbels.net/Service/BrandService.svc/TestGetAll')
-    // $http.get('table.json')
-    //   .then(function(response){
-    //     $scope.mainData = response.data.GD;
-    //     // $scope.limitation = $scope.mainData.rowsperpage;
-    //     console.log(response);
-    //   });
-    $scope.dataTableRequester = function(requesterId){
+    $scope.dataTableRequester = function(requesterId,pageNo){
       console.log("here");
       $('#'+requesterId).append( '<div class="ui active inverted dimmer">'+
                                     '<div class="ui medium text loader">Loading</div>'+
                                   '</div>');
   
-      $http({
-        url : 'http://service.webbels.net/brand/paginate/',
-        method: 'GET',
-        params: {
+      // $http({
+      //   url : 'http://service.webbels.net/brand/paginate/',
+      //   method: 'GET',
+      var  params = {
             userId : '169055bd-24d6-4e10-9f98-d4a8c6e102c5',
             browserInfo : 'chrome canary',
-            rowIndex : 1,
-            rowSize : 10,
+            rowIndex : pageNo,
+            rowSize : 70,
             orderColumn : 'code',
             orderType : 'desc', //asc 
             searchKeyword : '', 
             advanceSearch : ''
           }
-        }).then(function(response) {
-      // $http.get('table.json').then(function(response){
-        console.log(response);
-        $scope.mainData = response.data.GD;
-        $('#'+requesterId).children('.inverted.dimmer').remove();
-        console.log($scope.mainData);
-      });
+      //   }).then(function(response) {
+      // // $http.get('table.json').then(function(response){
+      //   console.log(response);
+      //   $scope.mainData = response.data.GD;
+      //   $scope.pagination = response.data.GD.pagecount;
+      //   $scope.pageNumbers = [];
+      //   for (var i = 0 ; i <$scope.pagination ; i++){
+      //     $scope.pageNumbers.push(+i+1);
+      //   }
+      //   console.log($scope.pageNumbers);
+      //   $('#'+requesterId).children('.inverted.dimmer').remove();
+      //   console.log($scope.mainData);
+      // });
+      var url = 'http://service.webbels.net/brand/paginate',
+          method = 'GET';
+          // params = $scope.auth;
+
+          APIService.doApiCall(params,url, method, function(response) {
+              // if (data.sessionValid === "true") {
+                  $scope.mainData = response.GD;
+                  $scope.pagination = response.GD.pagecount;
+                  $scope.pageNumbers = [];
+                  for (var i = 0 ; i < $scope.pagination ; i++){
+                    $scope.pageNumbers.push(+i+1);
+                  }
+                  $('#'+requesterId).children('.inverted.dimmer').remove();
+              // };
+          });
     };
     $scope.validation = function(t){
       $scope.validation = {};
@@ -110,7 +123,7 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
         method: 'GET',
         params: data
       }).then(function(response) {
-        $scope.dataTableRequester('brandModule');
+        $scope.dataTableRequester('brandModule',1);
         console.log(response);
       
       });
@@ -141,7 +154,7 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
         $scope.gridCheckBox = {}; //needs to be in a clean function ***
          //needs to be in a clean function *** START
 
-        $scope.dataTableRequester('brandModule');
+        $scope.dataTableRequester('brandModule',1);
         console.log(response);
       
       });

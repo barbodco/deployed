@@ -24,6 +24,9 @@
     </div>
   </div>
   <div class="ui bottom attached segment">
+  <button class="circular massive green ui icon button">
+    <i class="icon add"></i>
+  </button>
   <button class="ui large button" ng-click="closeOverSlider();templateRequester('brandAdd','over-slider')">
     <i class="add square icon"></i>
     Add
@@ -36,7 +39,7 @@
     <i class="Delete square icon"></i>
     Delete
   </div>
-    <table  id="brandModule" class="ui compact celled table" ng-init="data = dataTableRequester('brandModule')">
+    <table  id="brandModule" class="ui compact celled striped table" ng-init="data = dataTableRequester('brandModule',1)">
       <thead>
         <tr>
           <th>
@@ -49,7 +52,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr  ng-repeat="values in mainData.data track by $index" ng-if="$index < limitation" ng-class="{ 'hide' : values === null }">
+        <tr  ng-repeat="values in mainData.data track by $index" ng-class="{ 'hide' : values === null }">
           <td class="selectors">
             <div class="ui checkbox">
               <input type="checkbox" ng-click="gridCheckBoxStatus(values[0].value, values[3].value,values[2].value,values[1].value)" module-id="{{ values[0].value }}">
@@ -117,11 +120,8 @@
                 <a class="icon item">
                   <i class="left chevron icon"></i>
                 </a>
-                <a class="item">1</a>
-                <a class="item">2</a>
-                <div class="disabled item">...</div>
-                <a class="item">11</a>
-                <a class="item">12</a>
+                <a class="item" ng-repeat="i in pageNumbers track by $index" ng-click="dataTableRequester('brandModule', i)" >{{ i }}</a>
+                <!-- <div class="disabled item">...</div> -->
                 <a class="icon item">
                   <i class="right chevron icon"></i>
                 </a>
