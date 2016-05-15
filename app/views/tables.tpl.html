@@ -24,21 +24,15 @@
     </div>
   </div>
   <div class="ui bottom attached segment">
-  <button class="circular massive green ui icon button">
+  <button class="circular massive green ui icon button" ng-click="closeOverSlider();templateRequester('brandAdd','over-slider')">
     <i class="icon add"></i>
   </button>
-  <button class="ui large button" ng-click="closeOverSlider();templateRequester('brandAdd','over-slider')">
-    <i class="add square icon"></i>
-    Add
+  <button class="circular massive blue ui icon button" ng-click="closeOverSlider();templateRequester('brandEdit','over-slider')" ng-hide="gridCheckBoxCounter === 0">
+    <i class="icon edit"></i>
   </button>
-  <div class="ui large button" ng-click="closeOverSlider();templateRequester('brandEdit','over-slider')" ng-class="{disabled: gridCheckBoxCounter === 0}">
-    <i class="edit square icon"></i>
-    Edit
-  </div>
-  <div class="ui large button" ng-click="closeOverSlider();templateRequester('brandDelete','over-slider')" ng-class="{disabled: gridCheckBoxCounter === 0}">
-    <i class="Delete square icon"></i>
-    Delete
-  </div>
+  <button class="circular massive red ui icon button" ng-click="closeOverSlider();templateRequester('brandDelete','over-slider')" ng-hide="gridCheckBoxCounter === 0">
+    <i class="icon remove"></i>
+  </button>
     <table  id="brandModule" class="ui compact celled striped table" ng-init="data = dataTableRequester('brandModule',1)">
       <thead>
         <tr>

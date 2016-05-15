@@ -1,6 +1,47 @@
 'use strict';
 
 /**
+ * @ngdoc overview
+ * @name inventoryApp
+ * @description
+ * # inventoryApp
+ *
+ * Main module of the application.
+ */
+angular
+  .module('barbod', [
+    'ngAnimate',
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
+    /* SERVICES */
+    // 'services.ajaxCall'
+    // 'genericTablessss'
+  ])
+  .config(["$routeProvider", function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/login.tpl.html',
+        controller: 'LoginCtrl',
+      })
+      .when('/dashboard', {
+        templateUrl: 'views/main-dashboard.tpl.html',
+        controller: 'mainDashboardCtrl'
+      })
+      .when('/dashboard/modules', {
+        templateUrl: 'views/dashboard.tpl.html',
+        controller: 'DashboardCtrl'
+      });
+  //     .otherwise({
+  //       redirectTo: '/'
+  //     });
+  }]);
+
+'use strict';
+
+/**
  * @ngdoc function
  * @name inventoryApp.controller:MainCtrl
  * @description
@@ -294,3 +335,155 @@ barbod.controller('DashboardCtrl',['$scope','$http','$templateRequest','$compile
   });
 
  
+'use strict';
+
+
+barbod.factory('APIService', ['$http', function($http) {
+
+    return {
+        doApiCall: function(params,url, method, payload){
+
+            // I should make a call to server with the parameters passed
+            // from the controller.
+
+            var xhr = $http({
+                method: method,
+                url: url,
+                params: params
+            });
+
+            // You probably want to differentiate success / error handlers
+            xhr.success(payload);
+            xhr.error(payload);
+
+            return xhr;
+        }
+    };
+}]);
+'use strict';
+  barbod.service('LocationService', ["$location", function($location) {
+    this.go = function(url){
+      return $location.path(url);
+    }
+  }])
+'use strict';
+
+// var barbod = angular.module('barbod');
+
+barbod.controller('LoginCtrl', ['$scope','LocationService','APIService','$http',//$templateRequest',
+   function($scope,LocationService,APIService,$http){
+    $('body').addClass('in-login-bg');
+    // callsConfigs
+    	$http.get('calls.json').success(function(data) {
+		   $scope.callConfig = data;
+		   console.log($scope.callConfig)
+		});
+    $scope.go = function(url){
+       LocationService.go(url);
+    }
+    $scope.validation = function(){
+    	 // ng-click="go('/dashboard')"
+			var url = $scope.callConfig.endpoint.main + $scope.callConfig.endpoint.userLogin,
+				method = $scope.callConfig.endpoint.methods[1],
+				params = $scope.auth;
+
+
+    	 APIService.doApiCall(params,url, method, function(data) {
+	        if (data.sessionValid === "true") {
+	        	$scope.go('/dashboard');
+	        };
+	    });
+    } 
+  }
+]);
+// barbod.service('LocationService', function($location) {
+//   this.go = function(url){
+//     return $location.path(url);
+//   }
+// })
+
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name inventoryApp.controller:MainCtrl
+ * @description
+ * # MainCtrl
+ * Controller of the inventoryApp
+ */	
+
+  barbod.controller('mainDashboardCtrl', ["$scope", "$location", function($scope,$location) {
+  	$('.shape').shape();
+	// $('.shape').shape('flip left');
+	$('.dropdown').dropdown({
+      // you can use any ui transition
+      transition: 'drop'
+    });
+	$scope.go = function(url){
+	//    // $templateRequest("scripts/dashboard/dashboard.tpl.html").then(function(html){
+	//       // var template = angular.element(html);
+	//       // element.append(template);
+	//       // $compile(template)(scope);
+	//       // console.log(html);
+	    $location.path(url);
+	 // });
+	};
+	$scope.modules = {};
+	$scope.dashboardGenerator = function(){
+		// ajax call first
+		var response = {userId: "2564576577888-3455454-4555", sessionValid: "true", access: "|M(PO-B-IT-DI)|"};
+			$scope.accessSeperator(response);
+	};
+	$scope.accessSeperator = function(data){
+		var accessLevel = data.access, // name as aL
+			aL_Modes = ((accessLevel.replace('|M(','')).replace(')|','')).split('-'); //clean it up to array FOR MODULES
+
+			angular.forEach(aL_Modes, function(v,k){ 
+				// this json needs to get generated in different scope function
+				$scope.moduleConstructor(v)
+			})
+		console.log($scope.modules)
+	}
+	$scope.moduleConstructor = function(mCode){
+		var codes = {
+			B : {
+				name : 'Brand',
+				mainIcon: 'puzzle'
+			},
+			PO: {
+				name: 'Purchase Order',
+				mainIcon: 'heartbeat'
+			},
+			IT:{
+				name: 'Item',
+				mainIcon: 'alarm'
+			},
+			DI:{
+				name: 'Buy',
+				mainIcon: 'find'
+			}
+		}
+		$scope.modules[mCode] = {
+			icon: codes[mCode].mainIcon ,
+			name: codes[mCode].name,
+			subAccess:
+				[{
+					icon: codes[mCode].mainIcon,
+					name: 'add'
+				},{
+					icon: codes[mCode].mainIcon,
+					name: 'edit'
+				},{
+					icon: codes[mCode].mainIcon,
+					name: 'delete'
+				}]
+			
+		};
+		console.log(codes[mCode]);
+	}
+	
+      return {
+          restrict: 'AE',
+          templateUrl: 'scripts/dashboard/main-dashboard.tpl.html'
+      };
+  }]);
