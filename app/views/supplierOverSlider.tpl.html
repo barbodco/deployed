@@ -1,0 +1,86 @@
+<div generic-message></div>
+<div generic-table ng-controller="supplierModuleController"></div>
+<!-- Item Type OverSlider -->
+  <div class="body-wrapper over-slider itemtype"  ng-class="{'hide-over-slider': showHideValidation === false}">
+        <div  ng-click="overSlider()">
+          <i class="icon remove"></i>
+        </div>
+        <div class="ui segment full-height" id="over-slider" ng-controller="supplierModuleController">
+          <!-- Item Type Add Data -->
+            <form class="ui form" ng-show="adding">
+              <div class="field">
+                <label>Supplier Code</label>
+                <input type="text" ng-model="barbod.supplier.dataInput.parent.code"
+                 name="first-name" placeholder="Code No.">
+              </div>
+              <div class="sixteen wide field">
+                  <label>Supplier Description</label>
+                  <input type="text" name="last-name" placeholder="Description" ng-model="barbod.supplier.dataInput.parent.description">
+              </div>
+              <div class="fields">
+                <div class="eight wide field">
+                    <div class="ui toggle checkbox">
+                      <input type="checkbox" ng-model="barbod.supplier.dataInput.parent.isActive ">
+                      <label>Active</label>
+                    </div>
+                </div>
+                <div class="eight wide field">
+                    <div class="ui toggle checkbox">
+                      <input type="checkbox" ng-model="barbod.supplier.dataInput.parent.isTaxable ">
+                      <label>Taxable</label>
+                    </div>
+                </div>
+              </div>
+              <div class="sixteen wide field">
+                  <label>{{barbod.supplier.dataInput.child[0].label}}</label>
+                  <input type="text" name="last-name" placeholder="{{barbod.supplier.dataInput.child[0].label}}" ng-model="barbod.supplier.dataInput.child[0].value">
+              </div>
+              <div class="sixteen wide field">
+                <label>{{barbod.supplier.dataInput.child[1].label}}</label>
+                <input type="text" name="last-name" placeholder="{{barbod.supplier.dataInput.child[1].label}}" ng-model="barbod.supplier.dataInput.child[1].value">
+              </div>
+              <div class="sixteen wide field">
+                <label>{{barbod.supplier.dataInput.child[2].label}}</label>
+                <input type="text" name="last-name" placeholder="{{barbod.supplier.dataInput.child[2].label}}" ng-model="barbod.supplier.dataInput.child[2].value">
+              </div>
+              
+              <div class="ui button" ng-click="addNewSupplier()">Save</div>
+            </form>
+          <!-- Item Type Delete Data -->
+            <div>
+              <div class="ui ignored negative icon message" ng-show="deleting">
+                <i class="Delete icon"></i>
+                <div class="content">
+                  <h3 class="header">Brand Delete</h3>
+                  <p>You're about to delete below list of brands. </p>
+                </div>
+              </div>
+              <form class="ui form" ng-show="deleting">
+                <div class="ui segment">
+                  <div class="ui labeled button" tabindex="0" ng-repeat="data in editList.list track by $index">
+                    <div class="ui blue button">
+                      <i class="delete icon"></i> {{data[1].value}}
+                    </div>
+                    <a class="ui basic blue left pointing label brand-edit-each">
+                      <i class="info icon"></i>
+                    </a>
+                    <div class="ui fluid popup top left transition">
+                      <div class="ui one column divided center aligned grid">
+                        <div class="column">
+                          <a class="ui white ribbon label">
+                            <div class="ui toggle checkbox">
+                              <input type="checkbox" name="gift" tabindex="0" class="hidden">
+                              <label>Active</label>
+                            </div>
+                          </a>
+                          test
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui button" ng-click="deleteItemTypes()" ng-show="deleting">Delete</div>
+              </form>
+            </div>
+        </div>
+  </div>
