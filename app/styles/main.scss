@@ -188,7 +188,7 @@ body{
 .body-wrapper.over-slider{
   @include transition(all .5s, color 2s);
   width: 40%;
-  position: absolute;
+  position: fixed;
   right: 0%;
   background-color: $color-500;
   padding: 55px 0px 0px 4px;
@@ -507,4 +507,31 @@ table{
 
 .ui.labeled.brand-edit-each{
   margin: 2px 0;
+}
+// generic message
+.generic-message{
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0px 0px 27px -2px #568555;
+  display: none!important;
+}
+.current-page {
+  background-color: $color-100 !important;
+}
+.module-functions-validation{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparentize($color-400 , .6);
+  z-index: 999;
+}
+.stepper{
+  position: absolute;
+  left: -180px;
+}
+.hide-stepper{
+  left: 0;
 }

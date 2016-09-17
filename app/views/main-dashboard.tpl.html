@@ -1,6 +1,6 @@
 <div ng-controller="mainDashboardCtrl">
 	<div class="main-modules-wrapper ui centered grid" ng-init="eachModules = dashboardGenerator()">
-		<div ng-repeat="eachModule in modules track by $index" class="each-module">
+		<div ng-repeat="eachModule in modules track by $index" ng-show="$index < 4" class="each-module">
 			<i class="{{eachModule.icon}} icon"></i>
 			<div class="name">{{eachModule.name}}</div>
 			<div class="subs">
@@ -23,21 +23,8 @@
 		<div class="ui dropdown right pointing module-drop">
 			<i class="ellipsis vertical icon"></i>
 			<div class="menu">
-              <div class="item" data-value="1">Users</div>
-              <div class="ui divider">
-                <i class="settings icon"></i>
-              </div>
-              <div class="item" data-value="1">Change Password</div>
-              <div class="ui divider">
-                <i class="user icon"></i>
-              </div>
-              <div class="item" data-value="1">Company</div>
-              <div class="item" data-value="1">Branch</div>
-              <div class="item" data-value="1">System Configuration</div>
-              <div class="item" data-value="1">Announcements</div>
-              <div class="item" data-value="1">About Application</div>
-              <div class="ui divider"></div>
-              <div class="item" data-value="0" ng-click="go(login)">Logout</div>
+              <div ng-repeat="eachModule in modules track by $index" ng-show="$index > 4"  class="item" data-value="1">{{eachModule.name}}</div>
+              <!-- <div class="ui divider"></div> -->
             </div>
 		</div>
 		

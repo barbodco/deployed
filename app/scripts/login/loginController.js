@@ -2,8 +2,8 @@
 
 // var barbod = angular.module('barbod');
 
-barbod.controller('LoginCtrl', ['$scope','LocationService','APIService','$http',//$templateRequest',
-   function($scope,LocationService,APIService,$http){
+barbod.controller('LoginCtrl', ['$scope','LocationService','APIService','$http','AccessService',//$templateRequest',
+   function($scope,LocationService,APIService,$http,AccessService){
     $('body').addClass('in-login-bg');
     // callsConfigs
     	$http.get('calls.json').success(function(data) {
@@ -22,6 +22,7 @@ barbod.controller('LoginCtrl', ['$scope','LocationService','APIService','$http',
 
     	 APIService.doApiCall(params,url, method, function(data) {
 	        if (data.sessionValid === "true") {
+            localStorage.setItem("access",JSON.stringify(AccessService.accessTypes(data.access)));
 	        	$scope.go('/dashboard');
 	        };
 	    });
