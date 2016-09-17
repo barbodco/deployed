@@ -379,6 +379,7 @@ module.exports = function (grunt) {
             'styles/fonts/{,*/}*.*',
             'package.json',
             'server.js',
+            'calls.json',
             'Procfile'
           ]
         }, {
