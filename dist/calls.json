@@ -1,0 +1,58 @@
+{
+	"endpoint": {
+		"main": "http://service.webbels.net",
+		"userLogin": "/user/login",
+		"paginate": "/paginate",
+		"getall":"/getall",
+		"save":"/save",
+		"getbyid":"/getbyid",
+		"delete": "/delete",
+		"methods": ["POST","GET"]
+	},
+	"controllers":[
+		"/Brand",
+		"/Supplier",
+		"/Company",
+		"/ItemType",
+		"/Measurement"
+
+	], 
+	"function":{
+		"public":{
+			"userId" : "169055BD-24D6-4E10-9F98-D4A8C6E102C5",
+			"browserInfo" : ""
+		},
+		"paginate":{
+			"rowIndex" :0,
+			"rowSize" : 0,
+			"orderColumn" : "",
+			"orderType" : "",
+			"searchKeyword" : "",
+			"advanceSearch" :""
+		},
+		
+		"getbyid":{
+			"id": ""
+		},
+		"getbycode":{
+			"code": ""
+		},
+		"delete":{
+			"ids": ""
+		},
+		"getall":{
+
+		},
+		"save":{
+			"userId": "",
+			"browserInfo": "",
+			"Id": "",
+			"Code": "",
+			"Description": "",
+			"CompanyId": "",
+			"IsActive": 0,
+			"IsDeleted": 0
+		}
+	}
+
+}
