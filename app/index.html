@@ -2,14 +2,16 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/semantic/dist/semantic.css" />
-    <link rel="stylesheet" href="bower_components/semantic/dist/components/icon.css" />
+    <link   rel='STYLESHEET' type='text/css' href='bower_components/dhx/dhtmlxscheduler.css'>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -20,9 +22,6 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-    <!-- Add your site or application content here -->
-    
     <div id="content" ng-view > </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -55,11 +54,9 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/dashboard/dashboard.js"></script>
-        <script src="scripts/services/genericCallsService.js"></script>
-        <script src="scripts/services/locationService.js"></script>
-        <script src="scripts/services/genericAccessService.js"></script>
-        <script src="scripts/login/loginController.js"></script>
-        <script src="scripts/dashboard/mainDashboardController.js"></script>
+        <script src='bower_components/dhx/dhtmlxscheduler.js' type="text/javascript" charset="utf-8"></script>
+        <script src="bower_components/dhx/dhtmlxscheduler_minical.js" type="text/javascript" charset="utf-8"></script>
+
         <!-- endbuild -->
 </body>
 </html>

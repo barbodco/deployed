@@ -1,0 +1,32 @@
+[
+   {
+      "start_date":"2016-11-16T01:00:00.000Z",
+      "end_date":"2016-11-16T04:00:00.000Z",
+      "text":"Meeting",
+      "holder":"John",
+      "room":"5",
+      "id":1479016758100,
+      "_timed":true,
+      "_sday":2,
+      "_eday":3,
+      "_length":1,
+      "_sweek":2,
+      "_sorder":0,
+      "_first_chunk":true,
+      "_last_chunk":true
+   },
+   {
+      "start_date":"2017-04-05T16:00:00.000Z",
+      "end_date":"2017-04-05T16:05:00.000Z",
+      "text":"New event",
+      "id":1479016758104,
+      "_timed":true,
+      "_sday":3,
+      "_eday":4,
+      "_length":1,
+      "_sweek":1,
+      "_sorder":0,
+      "_first_chunk":true,
+      "_last_chunk":true
+   }
+]

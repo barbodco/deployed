@@ -23,17 +23,9 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/login.tpl.html',
-        controller: 'LoginCtrl',
+        templateUrl: 'views/scheduler.tpl.html',
+        controller: 'SchdeulerCtrl',
       })
-      .when('/dashboard', {
-        templateUrl: 'views/main-dashboard.tpl.html',
-        controller: 'mainDashboardCtrl'
-      })
-      .when('/dashboard/modules', {
-        templateUrl: 'views/dashboard.tpl.html',
-        controller: 'DashboardCtrl'
-      });
   //     .otherwise({
   //       redirectTo: '/'
   //     });
