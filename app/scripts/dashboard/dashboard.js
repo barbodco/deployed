@@ -9,8 +9,8 @@
  */
 var barbod = angular.module('barbod');
 
-barbod.controller('SchdeulerCtrl',['$scope','$http','$templateRequest','$compile',
-  function ($scope,$http,$templateRequest,$compile) {
+barbod.controller('SchdeulerCtrl',['$scope',
+  function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -87,13 +87,14 @@ barbod.directive('dhxScheduler', function() {
 
       };
       $scope.addNewEvent = function() {
-        scheduler.addEvent({
-            start_date: "16-11-2016 09:00",
-            end_date:   "16-11-2016 12:00",
-            text:   "Meeting",
-            holder: "John", //userdata
-            room:   "5"     //userdata
-        });
+        // eg: 
+        // scheduler.addEvent({
+        //     start_date: "16-11-2016 09:00",
+        //     end_date:   "16-11-2016 12:00",
+        //     text:   "Meeting",
+        //     holder: "John", //userdata
+        //     room:   "5"     //userdata
+        // });
       };
       //styling for dhtmlx scheduler
       $element.addClass("dhx_cal_container");

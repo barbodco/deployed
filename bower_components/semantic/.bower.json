@@ -10,8 +10,7 @@
     "jquery": ">=1.8"
   },
   "main": [
-    "dist/semantic.css",
-    "dist/components/icon.css",
+    "src/semantic.less",
     "dist/semantic.js"
   ],
   "keywords": [
@@ -25,14 +24,14 @@
     "src/site",
     "test"
   ],
-  "version": "2.1.8",
-  "_release": "2.1.8",
+  "version": "2.2.6",
+  "_release": "2.2.6",
   "_resolution": {
     "type": "version",
-    "tag": "2.1.8",
-    "commit": "04a3c48a0dd3bd9b440b59036004409239a6db16"
+    "tag": "2.2.6",
+    "commit": "0b1b59b0e1c780e842820df5c1904a162034812c"
   },
-  "_source": "git://github.com/Semantic-Org/Semantic-UI.git",
+  "_source": "https://github.com/Semantic-Org/Semantic-UI.git",
   "_target": "^2.1.8",
   "_originalSource": "semantic-ui"
 }
